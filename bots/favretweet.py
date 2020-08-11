@@ -12,7 +12,7 @@ logger = logging.getLogger()
 
 def fav_retweet(api):
     logger.info("Retrieving, marking as Liked and retweeting")
-    for tweet in tweepy.Cursor(api.search, q="#100DaysOfCloud", lang ="en").items(5):
+    for tweet in tweepy.Cursor(api.search, q="#100DaysOfCloud -filter:retweets", lang ="en").items(5):
         if not tweet.favorited:
             # Mark it as Liked, since we have not done it yet
             try:
